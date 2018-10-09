@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <title>New Player</title>
+    <h:head>
+        <link href="css/stylesheet.css" rel="stylesheet" type="text/css" />
+        <h1>New Player</h1>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="3">
+                Player Id: <h:inputText value="#{player.playerID}" required ="true"
+                                      requiredMessage="Your must enter Player ID"
+                                      validator="#{player.validatePlayerID}"
+                                      converterMessage="Player ID must be an integer"
+                                      id="userId"/>
+                <h:message for="userId" style="color:red;margin:8px;"/>
+
+                Name: <h:inputText value="#{player.name}" required ="true"
+                                   requiredMessage="Your must enter Player Name"
+                                   id="userName"/>
+                <h:message for="userName" style="color:red;margin:8px;"/>
+
+                Address: <h:inputText value="#{player.address}" required ="true"
+                                      requiredMessage="Your must enter Player Address"
+                                      validatorMessage="Address must be at least five characters"
+                                      id="userAddress">
+                    <f:validateLength minimum="5"/>
+                </h:inputText>
+                <h:message for="userAddress" style="color:red;margin:8px;"/>
+
+                Date: <h:inputText value="#{player.created_date}" required ="true"
+                                   requiredMessage="Date Required"
+                                   converterMessage="Illegal date (should be mm/dd/yyyy)"
+                                   id="userDate">
+                <f:convertDateTime pattern="MM/dd/yyyy"/>
+                </h:inputText>
+                <h:message for="userDate" style="color:red;margin:8px;"/>
+            </h:panelGrid>
+            <h:panelGrid>
+                <h:commandButton value="Go" action="#{player.createPlayer}"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
+
