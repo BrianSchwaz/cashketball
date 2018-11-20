@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+    <title>Display Player</title>
+    <h:head>
+        <link href="css/stylesheet.css" rel="stylesheet" type="text/css" />
+        <h1>Player</h1>
+    </h:head>
+    <h:body>
+        <h:dataTable value="#{player.getPlayer()}" var="c" border="1">
+            <h:column>
+                <f:facet name="header"> Player ID </f:facet>
+                    #{c.playerID}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header"> Name </f:facet>
+                    #{c.name}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header"> Address</f:facet>
+                    #{c.address}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Created Date</f:facet>
+                    #{c.created_date}
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>
+
+

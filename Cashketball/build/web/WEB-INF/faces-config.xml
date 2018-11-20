@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <managed-bean>
+        <managed-bean-name>selector</managed-bean-name>
+        <managed-bean-class>items.Selector</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+     <managed-bean>
+        <managed-bean-name>util</managed-bean-name>
+        <managed-bean-class>items.Util</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>player</managed-bean-name>
+        <managed-bean-class>items.Player</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>    
+    <managed-bean>
+        <managed-bean-name>login</managed-bean-name>
+        <managed-bean-class>items.Login</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>  
+    <navigation-rule>
+        <from-view-id>
+            /index.xhtml
+        </from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome> <!-- if method in index.xhtml returned string "success", then it will jump to another page-->
+            <to-view-id>start.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule> 
+    <navigation-rule>
+        <from-view-id>
+            /start.xhtml
+        </from-view-id>
+        <navigation-case>
+            <from-outcome>newPlayer</from-outcome>
+            <to-view-id>newPlayer.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>listPlayers</from-outcome>
+            <to-view-id>showAllPlayers.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>findPlayer</from-outcome>
+            <to-view-id>findPlayer.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>deletePlayer</from-outcome>
+            <to-view-id>deletePlayer.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>
+            /newPlayer.xhtml
+        </from-view-id>
+        <navigation-case>
+            <from-outcome>main</from-outcome>
+            <to-view-id>start.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>
+            /findPlayer.xhtml
+        </from-view-id>
+        <navigation-case>
+            <from-outcome>showPlayer</from-outcome>
+            <to-view-id>displayPlayer.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>
+            /deletePlayer.xhtml
+        </from-view-id>
+        <navigation-case>
+            <from-outcome>main</from-outcome>
+            <to-view-id>start.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    
+    
+    
+</faces-config>
